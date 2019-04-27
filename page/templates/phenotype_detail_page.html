@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+{% block title %} Détails phenotypes {% endblock %}
+
+{% block content %}
+
+<h2> {{ disease }} </h2>
+
+Voici les polymorphismes associés à ce phénotype ainsi que les études dans lesquels ils ont été identifié.
+
+<ul>
+
+	{% for e in obj1 %}
+		{% for x in obj2 %}
+			{% if e.reference_id == x.rowid %}
+				<li>Publication Medical Id : {{ x.pubmedid }}</li>
+				<li>Journal :  {{x.journal}} </li>
+				<li>Lien :  <a href="http://{{x.link}}" > {{x.link}} </a> </li>
+				<li>Sujet : {{x.study}} </li>
+				<li>Date : {{x.date}}</li>
+        <b> SNP </b>
+			{% endif %}
+		{% endfor %}
+		{% for y in obj3 %}
+			{% if e.snp_id == y.rowid %}
+				<li> ID :  {{y.rsid_current}}
+					<a href="/snp_details/{{y.rsid_current}} " > Détails SNP  </a>  </li>
+        <li> N° chromosome : {{ y.chr_id }}</li>
+        <li> Position (GRCh38) :  {{y.chr_pos}} </li>
+
+
+			{% endif %}
+		{% endfor %}
+    <li>p_value :  {{e.p_value}} </li>
+    <li>-log(p_value) :  {{e.pvalue_mlog}} </li>
+
+<hr>
+  {% endfor %}
+<ul>
+
+<a href="/maladies" > Page précédente  </a>
+{% endblock %}

@@ -1,0 +1,6 @@
+certifi==2019.1.18
+Django==2.0.2
+django-dia==0.4.1
+gunicorn==19.8.1
+pytz==2018.3
+six==1.11.0

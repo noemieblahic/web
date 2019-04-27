@@ -1,0 +1,10 @@
+<!--  inheritance of the template base.html  -->
+
+{% extends "base.html" %}
+{% block content %}
+<ul>
+{% for line in lines %}
+ <li style="color:{% cycle 'black' 'blue' 'green' %}"> {{ line }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,83 @@
+
+body {
+font: 80% georgia, sans-serif;
+font-size: 12pt;
+line-height: 1.8;
+color: #555753;
+margin: 0;
+padding: 0;
+}
+
+p {
+margin-top: 0;
+text-align: justify;
+}
+
+h2 {
+  font-size: 22pt;
+  color: navy;
+}
+
+.errorlist {
+  font-size: 14pt;
+  color : red;
+}
+
+.page-header {
+    background-color: LightPink;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1 {
+    color: #ffffff;
+    font-size: 36pt;
+    font-family:fantasy;
+    text-decoration: none;
+}
+
+.lien {
+  text-align:center;
+  font-size: 15pt;
+  background:#E0FFFF;
+  border: 2px solid ;
+  width:150px;
+  margin-top: 20px;
+ }
+
+.choix {
+  font-variant: small-caps;
+  font-size: 15pt;
+  color:navy;
+  width: 200;
+}
+
+table {
+ border-width:1px;
+ border-style:solid;
+ border-color:black;
+ width: 80%;
+ margin: 0 auto; ;
+ }
+
+th {
+  background:#E0FFFF;
+  Font-Family: Arial, Sans-Serif;
+  text-align:center;
+  font-size: 14pt
+}
+
+td {
+Font-Family: Arial, Sans-Serif;
+text-align:center;
+font-size: 12pt;
+ border-width:1px;
+ border-style:solid;
+ border-color:navy;
+ width:75px;
+ }
+
+ .bouton {
+  background:#87CEEB;
+  border: 2px solid ;
+ }

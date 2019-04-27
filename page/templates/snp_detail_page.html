@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Détails SNP {% endblock %}
+
+{% block content %}
+
+<h2> SNP rs{{ rs_id }} </h2>
+
+<div>
+Un p-valeur inférieure à 5 × 10e-8 témoigne généralement d'une association significative avec le phénotype associé. <br>
+
+{% for e in res_snp %}
+N° chromosome : {{ e.chr_id }} ; Position (GRCh38) : {{ e.chr_pos}} </br>
+{% endfor %}
+
+{% for e in Snp2Phenotype2Ref_res %}
+  {% for y in disease_table %}
+    {% if e.disease_trait_id == y.rowid %}
+      Phenotype : {{ y.disease_trait }}
+      <a href="/phenotype_details/{{ y.rowid }}" > Détails phénotype </a> </li>
+ <br>
+    {% endif %}
+  {% endfor %}
+
+      P_value : {{ e.p_value }} ; -log(p_value) : {{ e.pvalue_mlog }} <br>
+</div>
+<br>
+<div>
+  <b>dbSNP</b> est une base de données sur le serveur du NCBI. On y trouve de nombreuses informations concernant les SNPs comme par exemple : l'allèle ancetral, dérivé, la position sur les génomes GRCh37 et GRCh38.
+  On peut également connaitre les variations voisines, la séquence fasta de la région contenant le polymorphisme, la réparitions des allèles selon les populations... <br>
+      <a href="https://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi?rs={{ rs_id }}" > Lien vers dbSNP (NCBI) </a> </li>
+</div>
+
+{% endfor %}
+
+{% endblock %}

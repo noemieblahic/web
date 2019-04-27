@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Resulats recherche SNP {% endblock %}
+
+{% block content %}
+<h2>Resultats de la recherche </h2>
+
+
+<table class='table'>
+  <tr>
+		<th> Chr-Id  </th>
+		<th> ID </th>
+		<th> Lien vers détails </th>
+	</tr>
+	{% for e in obj %}
+	<tr>
+		<td> {{ e.chr_id }} </td>
+		<td> {{ e.rsid_current }} </td>
+		<td> <a href="/snp_details/{{e.rsid_current}} " > Détails SNP  </a>  </td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}

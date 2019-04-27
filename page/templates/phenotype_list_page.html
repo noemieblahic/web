@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block title %}Phenotypes {% endblock %}
+
+{% block content %}
+
+<h2> Liste des phénotypes repertoriés </h2>
+ <a href="/logout"> logout </a>
+
+<table class='table'>
+  <th> Phénotypes </th>
+  {% for line in lines %}
+    <tr>
+      <td> {{ line.disease_trait }}  <a href="/phenotype_details/{{ line.rowid }}" > Détails </a> </td>
+     </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
+</html>

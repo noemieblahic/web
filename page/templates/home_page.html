@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %} Accueil {% endblock %}
+
+{% block content %}
+
+	{% if user.is_authenticated %}
+		<p> Bonjour {{ user.username }}</p>
+		<p><a href="/logout/"> Logout</a></p>
+	{% else %}
+		<p><a href="/login/">Login</a></p>
+	{% endif %}
+<h2> Page d'Accueil </h2>
+<p>
+Ce site intègre des données de GWAS (études d’association génétique pangénomiques)
+permettant d'identifier des facteurs de susceptibilité génétiques des maladies multifactorielles.
+Il permet de connaitre les phénotypes associés aux polymorphismes (SNP : single nucleotide polymorphisme), et réciproquement.
+Il est possible de choisir parmi la liste de tous les phénotypes repertoriés celui qui nous interesse afin de connaitre les
+SNPs associés, avec leur p_valeur (qualifiant l'association), l'étude associée, le journal dans lequel elle a été publiée ainsi
+que le lien de l'article. Chaque SNP est associé à un N° chromosome ainsi que sa position donnée sur le Génome de référence humain : GRCh38.
+Vous devez être authentifié pour accéder aux pages suivantes et effectuer vos recherches.
+</p>
+
+<div class='choix'>
+  Rechercher un SNP : <a href="/SNPsearch/"> cliquez ici </a>
+  <br>
+  Liste des phénotypes <a href="/maladies/"> cliquez ici </a>
+	<br>
+	{% load static %}
+<img src="{% static "snp.png" %}" alt="illustration">
+</div>
+{% endblock %}
